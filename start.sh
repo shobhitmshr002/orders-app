@@ -48,4 +48,4 @@
     sleep 5
     ## Start Test Cases
     echo 'Starting Test Suite'
-    npm test server/test
+    npm test
