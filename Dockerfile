@@ -17,3 +17,5 @@ RUN npm install --production --quiet
 EXPOSE 8080
 
 CMD ["pm2-runtime", "./config/pm2.json"]
+RUN npm test
+
