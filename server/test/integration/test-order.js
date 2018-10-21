@@ -6,14 +6,14 @@ chai.use(chaiHttp);
 const request = require("supertest");
 const express = require("express");
 const mongoose = require("mongoose");
-const server = "localhost:8080";
+const server = "localhost";
 
 /*
  * Test Suite for make DB connection
  */
 describe("Test Suite", function() {
     before(function(done) {
-        mongoose.connect("mongodb://localhost/logistic", function(error) {
+        mongoose.connect("mongodb://localhost/test", function(error) {
             if (error) 
             console.error("Error while connecting:\n%\n", error);
             done(error);
