@@ -177,7 +177,57 @@
           }
         }
       }
+      },
+      "/orders": {
+        "get": {
+          "tags": ["Order"],
+          "description": "Get orders",
+        "parameters": [{
+          "name": "Order",
+          "in": "query",
+          "description": "Order creation details",
+          "schema": {
+            "type": "integer",
+            "required": ["limit", "page"],
+            "properties": {
+              "limit": {
+                "type": "number",
+                "uniqueItems": false
+              },
+              "page": {
+                "type": "number",
+                "uniqueItems": false
+              }
+            }
+          }
+        }],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Orders list",
+            "examples": {
+              "application/json":
+                [{
+                  "id": "5bca45bab6b2864dc001e891",
+                  "distance": "539 km",
+                  "status":"UNASSIGN"
+                }]
+            }
+          },
+          "500": {
+            "description": "Order is not created",
+            "examples": {
+              "application/json":
+                {
+                  "error": "Invalid page: 'sa', page needs to be an integer."
+                }
+            }
+          }
+        }
       }
+    }
     },
     "definitions": {
       "Order": {
