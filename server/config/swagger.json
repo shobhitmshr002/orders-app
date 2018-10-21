@@ -1,0 +1,224 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Mean Application API",
+      "description": "Mean Application API",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Users",
+        "description": "API for users in the system"
+      },
+      {
+        "name": "Auth",
+        "description": "API for auth in the system"
+      },
+      {
+        "name": "Order",
+        "description": "API for Order in the system"
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "securityDefinitions": {
+      "AuthHeader": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization"
+      }
+    },
+    "paths": {
+      "/auth/login": {
+        "post": {
+          "tags": ["Auth"],
+          "description": "Login to the system",
+        "parameters": [{
+          "name": "auth",
+          "in": "body",
+          "description": "User auth details",
+          "schema": {
+            "type": "object",
+            "required": ["email", "password"],
+            "properties": {
+              "email": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              }
+            }
+          }
+        }],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "User is loggedin",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+      },
+      "/order": {
+        "post": {
+          "tags": ["Order"],
+          "description": "Create an order",
+        "parameters": [{
+          "name": "Order",
+          "in": "body",
+          "description": "Order creation details",
+          "schema": {
+            "type": "object",
+            "required": ["origin", "destination"],
+            "properties": {
+              "origin": {
+                "type": "array",
+                "collectionFormat": "multi",
+                "items": {
+                "type": "integer",
+                "format":"double"
+              },
+            "uniqueItems": false
+              },
+              "destination": {
+                "type": "array",
+           "collectionFormat": "multi",
+           "items": {
+                "type": "integer",
+                "format":"double"
+              },
+            "uniqueItems": false
+              }
+            }
+          }
+        }],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Order is created",
+            "examples": {
+              "application/json":
+                {
+                  "id": "5bca45bab6b2864dc001e891",
+                  "distance": "539 km",
+                  "status":"UNASSIGN"
+                }
+            }
+          },
+          "500": {
+            "description": "Order is not created",
+            "examples": {
+              "application/json":
+                {
+                  "error": "ERROR_DESCRIPTION"
+                }
+            }
+          }
+        }
+      },
+      "put": {
+          "tags": ["Order"],
+          "description": "Update an order",
+        "parameters": [{
+          "name": "Order",
+          "in": "body",
+          "description": "Order updation details",
+          "schema": {
+            "type": "object",
+            "required": ["status"],
+            "properties": {
+              "status": {
+                "type": "string"
+              },
+            "uniqueItems": false
+            }
+          }
+        }],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Order update success",
+            "examples": {
+              "application/json":
+                {
+                  "status":"UNASSIGN"
+                }
+            }
+          },
+          "500": {
+            "description": "Order update failed",
+            "examples": {
+              "application/json":
+                {
+                  "error": "ORDER_ALREADY_BEEN_TAKEN OR DOES NOT EXIST"
+                }
+            }
+          }
+        }
+      }
+      }
+    },
+    "definitions": {
+      "Order": {
+        "required": [
+          "origin",
+          "destination"
+        ],
+        "properties": {
+          "origin": {
+            "type": "array",
+           "collectionFormat": "multi",
+           "items": {
+             "type": "integer",
+             "format":"double"
+            },
+            "uniqueItems": false
+          },
+          "destination": {
+            "type": "array",
+           "collectionFormat": "multi",
+           "items": {
+             "type": "integer",
+             "format":"double"
+            },
+            "uniqueItems": false
+          }
+        }
+      },
+      "OrderResponse":{
+        "type": "object",
+        "properties": [{
+          "id": {
+            "type": "string"
+          },
+          "distance": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        }]
+      } 
+  }
+}

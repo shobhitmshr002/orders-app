@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "name": "Orders-API",
+      "script": "../server/index.js",
+      "instances": "max",
+      "exec_mode": "cluster"
+    }
+  ]
+}
