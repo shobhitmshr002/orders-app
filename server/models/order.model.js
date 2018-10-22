@@ -60,7 +60,7 @@ orderSchema.statics = {
     async updateOrder(id, orderUpdate) {
         try {
             const order = await this.findOneAndUpdate({
-                id,status:"UNASSIGN"
+                id,status:orderUpdate == "taken"?"UNASSIGN":"taken"
             },{$set:{status:orderUpdate.status}},{new:false});
             if (!order) {
                 throw new ErrorHandler(409, "ORDER_ALREADY_BEEN_TAKEN OR DOES NOT EXIST");

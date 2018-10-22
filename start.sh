@@ -45,9 +45,9 @@
     # # Start the application
     sudo npm install 
     sudo docker-compose up &
-    sleep 5
     ## Start lint
     eslint .eslintrc.js server
+    sleep 5
     ## Start Test Cases
     echo 'Starting Test Suite'
     npm test

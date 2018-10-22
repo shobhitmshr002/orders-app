@@ -8,10 +8,9 @@ const {
     updateOrder
 } = require("../controllers/order.controller");
 
-const requireAdmin = require("../middleware/require-admin");
-// globals
+// const requireAdmin = require("../middleware/require-admin");
 const router = express.Router();
-router.use(passport.authenticate("jwt", { session: false }),requireAdmin);
+// router.use(passport.authenticate("jwt", { session: false }),requireAdmin);
 
 /* All the Orders Route */
 

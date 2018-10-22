@@ -1,6 +1,7 @@
 FROM node:8.12.0
 
 RUN npm install pm2@3.1.3 --global --quiet
+RUN npm install eslint --global --quiet
 # add local user for security
 RUN groupadd -r nodejs \
   && useradd -m -r -g nodejs nodejs
