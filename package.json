@@ -3,9 +3,8 @@
   "version": "2.0.1",
   "license": "",
   "scripts": {
-    "start": "concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\" \"nodemon server\"",
+    "start": "\"nodemon server\"",
     "test": "node_modules/.bin/mocha -u exports server/test/integration/*",
-    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {

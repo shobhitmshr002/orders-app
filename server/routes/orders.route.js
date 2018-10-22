@@ -12,14 +12,14 @@ const router = express.Router();
 router
     .route("")
     .get(function (req, res) {
-      readOrders(req,res,function(orders){
-        if(!orders.length){
-          res.status(500);
-          res.send(orders);
-        }else{
-          res.json(orders);
-        }
-      });
+        readOrders(req,res,function(orders){
+            if(!orders.length){
+                res.status(500);
+                res.send(orders);
+            }else{
+                res.json(orders);
+            }
+        });
     });
 
 module.exports = router;

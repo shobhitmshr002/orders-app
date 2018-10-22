@@ -15,7 +15,7 @@ describe("Test Suite", function() {
     before(function(done) {
         mongoose.connect("mongodb://localhost/test", function(error) {
             if (error) 
-            console.error("Error while connecting:\n%\n", error);
+                console.error("Error while connecting:\n%\n", error);
             done(error);
         });
     });
@@ -121,15 +121,15 @@ describe("/PUT /order/:id", () => {
             })
             .end((err,res1) => {
                 chai.request(server)
-                .put("/order/" + res1.body.id)
-                .send({
-                    status: "taken"
-                })
-                .end((err, res) => {
-                    expect(res).to.have.status(200);
-                    done();
-                });
-        });
+                    .put("/order/" + res1.body.id)
+                    .send({
+                        status: "taken"
+                    })
+                    .end((err, res) => {
+                        expect(res).to.have.status(200);
+                        done();
+                    });
+            });
     });
 
     it("should return failure for updating status to taken", (done) => {
