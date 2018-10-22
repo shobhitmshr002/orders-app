@@ -10,7 +10,7 @@ npm start
 ## How to Install & Run with docker
 
 1.  Clone the repo
-2.  Set Google Distance API key in app/config.js file line no. 8
+2.  Set Google Distance API key in server/config/config.js file line no. 20
 3.  Run `./start.sh` to download Docker CE and Docker Compose if not exist
     You may need to grant executable permission to 'start.sh' file
     On Ubuntu: sudo chmod +x start.sh
@@ -53,7 +53,7 @@ npm start
 
 ## Google API configuration ##
 
-- add google apk key in configuration file located in app/config.js
+- add google apk key in configuration file located in server/config/config.js
 
 ##Code style##
 - Using eslint for code style
