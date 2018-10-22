@@ -7,13 +7,13 @@ const mongoose = require("mongoose");
 const Order = require("../models/order.model");
 const 
     ErrorHandler
-   = require("../middleware/errorHandler");
-const paginationHandler = require("../middleware/paginationHandler");
+   = require("../middleware/error.handler");
+const paginationHandler = require("../middleware/pagination.handler");
 const {
     newOrderSchema,
     updateOrderSchema
 } = require("../schemas");
-var distance = require("google-distance");
+const distance = require("google-distance");
 // google distance api key
 const {
     google_maps_key

@@ -29,7 +29,7 @@ const UserSchema = new mongoose.Schema({
 
 UserSchema.statics = {
     async createUser(newUser){
-        const user = await newOrder.save();
+        const user = await newUser.save();
         return user.toObject();
     }
 };

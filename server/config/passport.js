@@ -32,6 +32,14 @@ const jwtLogin = new JwtStrategy({
     done(null, user);
 });
 
+passport.serializeUser(function(user, done) {
+    done(null, user);
+});
+  
+passport.deserializeUser(function(user, done) {
+    done(null, user);
+});
+
 passport.use(jwtLogin);
 passport.use(localLogin);
 

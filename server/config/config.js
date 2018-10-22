@@ -17,7 +17,7 @@ const envVarsSchema = Joi.object({
             otherwise: Joi.boolean().default(false)
         }),
     maps_key:Joi.string()
-        .default("AIzaSyCUCh9LR13qeyoK_AE9zVbUdY150MIa6mM"),
+        .default("AIzaSyCo3XHomwHAnTVKqF9NxGgC8SIry3-MBD0"),
     JWT_SECRET: Joi.string()//.required()
         .description("JWT Secret required to sign")
         .default("my-key"),

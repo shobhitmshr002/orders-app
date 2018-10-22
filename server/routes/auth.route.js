@@ -6,7 +6,6 @@ const authCtrl = require("../controllers/auth.controller");
 const config = require("../config/config");
 
 const router = express.Router();
-module.exports = router;
 
 router.post("/register", asyncHandler(register), login);
 router.post("/login", passport.authenticate("local", { session: false }), login);
@@ -26,3 +25,5 @@ function login(req, res) {
     let token = authCtrl.generateToken(user);
     res.json({ user, token });
 }
+
+module.exports = router;

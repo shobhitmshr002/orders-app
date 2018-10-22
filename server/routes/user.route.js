@@ -4,7 +4,6 @@ const asyncHandler = require("express-async-handler");
 const userCtrl = require("../controllers/user.controller");
 
 const router = express.Router();
-module.exports = router;
 
 router.use(passport.authenticate("jwt", { session: false }));
 
@@ -16,3 +15,5 @@ async function insert(req, res) {
     let user = await userCtrl.insert(req.body);
     res.json(user);
 }
+
+module.exports = router;

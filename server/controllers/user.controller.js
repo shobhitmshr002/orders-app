@@ -7,13 +7,9 @@ const userSchema = Joi.object({
     email: Joi.string().email(),
     mobileNumber: Joi.string().regex(/^[1-9][0-9]{9}$/),
     password: Joi.string().required(),
-    repeatPassword: Joi.string().required().valid(Joi.ref("password"))
+    repeatPassword: Joi.string().required().valid(Joi.ref("password")),
+    roles:Joi.array()
 });
-
-
-module.exports = {
-    insert
-};
 
 async function insert(user) {
     user = await Joi.validate(user, userSchema, { abortEarly: false });
@@ -21,3 +17,7 @@ async function insert(user) {
     delete user.password;
     return await User.createUser(new User(user));
 }
+
+module.exports = {
+    insert
+};

@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 // app imports
-const ErrorHandler  = require("../middleware/errorHandler");
+const ErrorHandler  = require("../middleware/error.handler");
 
 // globals
 const Schema = mongoose.Schema;
