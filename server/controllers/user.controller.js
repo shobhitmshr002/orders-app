@@ -19,5 +19,5 @@ async function insert(user) {
     user = await Joi.validate(user, userSchema, { abortEarly: false });
     user.hashedPassword = bcrypt.hashSync(user.password, 10);
     delete user.password;
-    return await createUser(new User(user));
+    return await User.createUser(new User(user));
 }
