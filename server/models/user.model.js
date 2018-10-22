@@ -27,5 +27,11 @@ const UserSchema = new mongoose.Schema({
     versionKey: false
 });
 
+UserSchema.statics = {
+    async createUser(newUser){
+        const user = await newOrder.save();
+        return user.toObject();
+    }
+};
 
 module.exports = mongoose.model("User", UserSchema);

@@ -4,8 +4,7 @@ const express = require("express");
 // app imports
 const {
     createOrder,
-    updateOrder,
-    readOrders
+    updateOrder
 } = require("../controllers/order.controller");
 
 // globals

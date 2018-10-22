@@ -20,7 +20,7 @@ const envVarsSchema = Joi.object({
         .default("AIzaSyCUCh9LR13qeyoK_AE9zVbUdY150MIa6mM"),
     JWT_SECRET: Joi.string()//.required()
         .description("JWT Secret required to sign")
-        .default("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"),
+        .default("my-key"),
     MONGO_HOST: Joi.string()//.required()
         .description("Mongo DB host url")
         .default("mongodb://localhost/test"),

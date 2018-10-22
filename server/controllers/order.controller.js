@@ -100,8 +100,7 @@ async function readOrders(request, response, next) {
   
     try {
         const orders = await Order.readOrders({}, {}, skip, limit);
-        console.log("orders----get====",orders);
-        next(orders);
+        response.json(orders);
     } catch (err) {
         next(err);
     }

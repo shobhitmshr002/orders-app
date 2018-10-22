@@ -13,9 +13,9 @@ const server = "localhost";
  */
 describe("Test Suite", function() {
     before(function(done) {
-        mongoose.connect("mongodb://localhost/test", function(error) {
-            if (error) 
-                console.error("Error while connecting:\n%\n", error);
+        mongoose.connect("mongodb://localhost/logistic", function(error) {
+            if (error) console.error("Error while connecting:\n%\n", error);
+            console.log("connected");
             done(error);
         });
     });
@@ -92,7 +92,7 @@ describe("/PUT /order/:id", () => {
                 status: "taken"
             })
             .end((err, res) => {
-                expect(res).to.have.status(409);
+                expect(res).to.have.status(404);
                 done();
             });
     });
@@ -112,25 +112,25 @@ describe("/PUT /order/:id", () => {
                     });
             });
     });
-    it("should return success for updating status to taken", (done) => {
+    it("should return success for updating status to taken", (done) => {
         chai.request(server)
             .post("/order")
             .send({
-                origin: ["28.530264", "77.111761"],
-                destination: ["28.530264", "77.111761"]
+                origin: ["28.530264", "77.111761"],
+                destination: ["28.530264", "77.111761"]
             })
-            .end((err,res1) => {
+            .end((err,res1) => {
                 chai.request(server)
-                    .put("/order/" + res1.body.id)
+                    .put("/order/" + res1.body.id)
                     .send({
-                        status: "taken"
+                        status: "taken"
                     })
-                    .end((err, res) => {
+                    .end((err, res) => {
                         expect(res).to.have.status(200);
                         done();
                     });
             });
-    });
+    }); 
 
     it("should return failure for updating status to taken", (done) => {
         chai.request(server)
@@ -168,18 +168,18 @@ describe("GET /", () => {
             });
     });
 
-    it("should return wrong limit datatype error with (limit=xyz)", (done) => {
+    it("should return wrong limit datatype error with (limit=abc)", (done) => {
         chai.request(server)
-            .get("/orders?page=1&limit=xyz")
+            .get("/orders?page=1&limit=abc")
             .end(function(err, res) {
                 expect(res).to.have.status(500);
                 done();
             });
     });
 
-    it("should return wrong page datatype error with (page=xyz)", (done) => {
+    it("should return wrong page datatype error with (page=abc)", (done) => {
         chai.request(server)
-            .get("/orders?page=xyz&limit=1")
+            .get("/orders?page=abc&limit=1")
             .end(function(err, res) {
                 expect(res).to.have.status(500);
                 done();
@@ -188,7 +188,7 @@ describe("GET /", () => {
 
     it("should return error with limit value less than 1 (limit=-1)", (done) => {
         chai.request(server)
-            .get("/orders?page=xyz&limit=1")
+            .get("/orders?page=abc&limit=1")
             .end(function(err, res) {
                 expect(res).to.have.status(500);
                 done();
@@ -197,7 +197,7 @@ describe("GET /", () => {
 
     it("should return error with page value less than 1 (page=0)", (done) => {
         chai.request(server)
-            .get("/orders?page=xyz&limit=1")
+            .get("/orders?page=abc&limit=1")
             .end(function(err, res) {
                 expect(res).to.have.status(500);
                 done();

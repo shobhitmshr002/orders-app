@@ -22,10 +22,11 @@ services:
     ports:
       - '80:80'
     volumes:
-      - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./server/config/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       
   mongodb:
     image: mongo:4
     command: mongod
     ports:
       - '27017:27017'
+ 
