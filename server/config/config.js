@@ -16,7 +16,8 @@ const envVarsSchema = Joi.object({
             then: Joi.boolean().default(true),
             otherwise: Joi.boolean().default(false)
         }),
-    maps_key:Joi.string(),
+    maps_key:Joi.string()
+        .default("PLACE-YOUR-DEFAULT-OR-FALLBACK-GOOGLE-MAPS-KEY-HERE"),
     JWT_SECRET: Joi.string()//.required()
         .description("JWT Secret required to sign")
         .default("my-key"),
