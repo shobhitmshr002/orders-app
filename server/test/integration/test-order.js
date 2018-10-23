@@ -92,7 +92,7 @@ describe("/PUT /order/:id", () => {
                 status: "taken"
             })
             .end((err, res) => {
-                expect(res).to.have.status(404);
+                expect(res).to.have.status(409);
                 done();
             });
     });
