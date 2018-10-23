@@ -4,7 +4,7 @@ const express = require("express");
 // app imports
 const {
     readOrders
-} = require("../controllers/order.controller");
+} = require("../controllers/order");
 
 // globals
 const router = express.Router();

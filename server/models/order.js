@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 const constants = require("../config/constants");
 // app imports
-const ErrorHandler  = require("../middleware/error.handler");
+const ErrorHandler  = require("../middleware/error");
 
 // globals
 const Schema = mongoose.Schema;

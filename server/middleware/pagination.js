@@ -1,4 +1,4 @@
-const errorHandler = require("./error.handler");
+const errorHandler = require("./error");
 /**
  * Validate the 'limit' and `skip` query params
  * @param {String} val - limit or skip param

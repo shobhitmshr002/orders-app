@@ -6,11 +6,10 @@ const passport = require("passport");
 const {
     createOrder,
     updateOrder
-} = require("../controllers/order.controller");
+} = require("../controllers/order");
 
-// const requireAdmin = require("../middleware/require-admin");
 const router = express.Router();
-// router.use(passport.authenticate("jwt", { session: false }),requireAdmin);
+// router.use(passport.authenticate("jwt", { session: false }));
 
 /* All the Orders Route */
 

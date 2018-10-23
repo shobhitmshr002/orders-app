@@ -1,8 +1,8 @@
 const express = require("express");
-const userRoutes = require("./user.route");
-const authRoutes = require("./auth.route");
-const orderRoutes = require("./order.route");
-const ordersRoutes = require("./orders.route");
+const userRoutes = require("./user");
+const authRoutes = require("./auth");
+const orderRoutes = require("./order");
+const ordersRoutes = require("./orders");
 const router = express.Router(); // eslint-disable-line new-cap
 
 /** GET /health-check - Check service health */

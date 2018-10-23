@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const Joi = require("joi");
-const User = require("../models/user.model");
+const User = require("../models/user");
 
 const userSchema = Joi.object({
     fullname: Joi.string().required(),

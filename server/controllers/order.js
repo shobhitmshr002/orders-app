@@ -4,11 +4,11 @@ const {
 } = require("jsonschema");
 const mongoose = require("mongoose");
 // app imports
-const Order = require("../models/order.model");
+const Order = require("../models/order");
 const 
     ErrorHandler
-   = require("../middleware/error.handler");
-const paginationHandler = require("../middleware/pagination.handler");
+   = require("../middleware/error");
+const paginationHandler = require("../middleware/pagination");
 const {
     newOrderSchema,
     updateOrderSchema

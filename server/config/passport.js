@@ -4,7 +4,7 @@ const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 const bcrypt = require("bcrypt");
 const constants = require("../config/constants");
-const User = require("../models/user.model");
+const User = require("../models/user");
 const config = require("./config");
 
 const localLogin = new LocalStrategy({

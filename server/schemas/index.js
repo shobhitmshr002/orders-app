@@ -1,2 +1,2 @@
-exports.newOrderSchema = require("./newOrder");
-exports.updateOrderSchema = require("./updateOrder");
+exports.newOrderSchema = require("./neworder");
+exports.updateOrderSchema = require("./updateorder");
