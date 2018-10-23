@@ -6,6 +6,8 @@
 	mag=$'\e[1;35m'
 	cyn=$'\e[1;36m'
 	white=$'\e[0m'
+    ## Start lint
+    eslint .eslintrc.js server
 	
 	sudo apt update
 	sudo apt install -y curl
@@ -45,8 +47,6 @@
     # # Start the application
     sudo npm install 
     sudo docker-compose up &
-    ## Start lint
-    eslint .eslintrc.js server
     sleep 5
     ## Start Test Cases
     echo 'Starting Test Suite'

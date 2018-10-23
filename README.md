@@ -53,9 +53,13 @@ npm start
 
 ## Google API configuration ##
 
-- add google apk key in configuration file located in server/config/config.js
+- add google apk key in Env variables or fallback/default in line 20 of configuration file located in server/config/config.js
 
 ##Code style##
 - Using eslint for code style
 ##Test coverage##
 - Using instanbul for test coverage
+##Swagger
+- Using "swagger-ui-express" for api documentation , can be reached at "http://localhost/api-docs" once docker is up
+##JWT Auth support
+- Though JWT auth (using passport module) support is provided in app but not enabled (due to time limit) for orders APIs, though can be tested with Postman for 'user' APIs.
