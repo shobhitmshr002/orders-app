@@ -1,4 +1,5 @@
 /** Class representing an API Error Response with a related HTTP Status Code **/
+const constants = require("../config/constants");
 class ErrorHandler extends Error {
     /**
      * Create an Error Object
@@ -7,7 +8,7 @@ class ErrorHandler extends Error {
      */
     constructor(
         status = 500,
-        message = "An unknown server error occurred."
+        message = constants.errorMessages.ERROR_5XX
     ) {
         super(message);
         this.status = status;

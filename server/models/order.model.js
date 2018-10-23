@@ -1,6 +1,6 @@
 // npm packages
 const mongoose = require("mongoose");
-
+const constants = require("../config/constants");
 // app imports
 const ErrorHandler  = require("../middleware/error.handler");
 
@@ -27,7 +27,7 @@ orderSchema.statics = {
 
             if (duplicate) {
                 return response.status(500).json({
-                    error: "ORDER_ALREADY_EXISTS"
+                    error: constants.errorMessages.ORDER_ALREADY_EXISTS
                 });
             }
 
@@ -63,7 +63,7 @@ orderSchema.statics = {
                 id,status:"UNASSIGN"
             },{$set:{status:orderUpdate.status}},{new:false});
             if (!order) {
-                throw new ErrorHandler(409, "ORDER_ALREADY_BEEN_TAKEN OR DOES NOT EXIST");
+                throw new ErrorHandler(409, constants.errorMessages.ORDER_TAKEN_OR_NOT_FOUND);
             }
         } catch (err) {
             return Promise.reject(err);

@@ -23,7 +23,7 @@ const envVarsSchema = Joi.object({
         .default("my-key"),
     MONGO_HOST: Joi.string()//.required()
         .description("Mongo DB host url")
-        .default("mongodb://localhost/test"),
+        .default("mongodb://localhost/orders-api"),
     MONGO_PORT: Joi.number()
         .default(27017)
 }).unknown()
