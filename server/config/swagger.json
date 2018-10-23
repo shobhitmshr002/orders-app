@@ -185,7 +185,7 @@
         "parameters": [{
           "name": "Order",
           "in": "query",
-          "description": "Order creation details",
+          "description": "Get orders",
           "schema": {
             "type": "integer",
             "required": ["limit", "page"],
