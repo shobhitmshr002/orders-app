@@ -57,8 +57,6 @@ npm start
 
 ## Code style ##
 - Using eslint for code style
-## Test coverage ##
-- Using instanbul for test coverage
 ## Swagger ##
 - Using "swagger-ui-express" for api documentation , can be reached at "http://localhost/api-docs" once docker is up
 ## JWT Auth support ##
