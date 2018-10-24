@@ -61,3 +61,6 @@ npm start
 - Using "swagger-ui-express" for api documentation , can be reached at "http://localhost/api-docs" once docker is up
 ## JWT Auth support ##
 - Though JWT auth (using passport module) support is provided in app but not enabled (due to time limit) for orders APIs, though can be tested with Postman for 'user' APIs.
+## Git commit practices ##
+- Ideally every commit message should include a Ticket number against a task in real development scenario.
+- Separate branches should be used for feature development and should be merged with master after code review and testing.
